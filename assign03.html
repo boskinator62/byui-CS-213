@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Seth Bolander's Home Page</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+
+        <header style="font-family: 'Times New Roman', Times, serif;">
+            <h1 style="background-color:cornflowerblue;text-align: center;">
+                <strong>Welcome to Seth Bolander's Home Page</strong>
+            </h1>
+            <a href="index.html">CS 213 Assignments</a>
+        </header>
+
+        <hr />
+        <div id="nav" style="background-color:mediumaquamarine">
+            <a href="#userform" style="padding:20px">Tell me about yourself</a>
+            <a href="#contact" style="padding:20px">Need to reach me</a>
+            <a href="https://byui.instructure.com/" style="padding:20px">Canvas</a>
+            <a href="https://byui.brightspace.com/d2l/home" style="padding:20px">Brightspace</a>
+        </div>
+
+        <div style="padding: 30px;background-color: cornflowerblue">
+            <p style="text-align: center">
+                <img src="me.jpg" alt="Profile" width="30%" />
+            </p>
+            <h4 style="font-family: 'Times New Roman', Times, serif">
+                <u>About me:</u>
+            </h4>
+            <dl>
+                <dt>Name:</dt>
+                <dd>Seth Bolander</dd>
+                <dt>Major:</dt>
+                <dd>Computer Science</dd>
+                <dt>Hometown:</dt>
+                <dd>Monument, CO</dd>
+                <dt>Favorite Quote:</dt>
+                <dd>
+                    <blockquote
+                        style="background-color:lightskyblue;text-align: center;font-family: Georgia, 'Times New Roman', Times, serif"
+                        cite="https://www.imdb.com/title/tt3986820/quotes/?tab=qt&ref_=tt_trv_qu">
+                        <i>The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of
+                            fear
+                            is fear of
+                            the Unknown. -H.P.Lovecraft</i>
+                    </blockquote>
+                </dd>
+            </dl>
+        </div>
+
+        <div>My course schedule:
+            <table style="border:1px solid black;">
+                <tr>
+                    <th style="border:1px solid black;font-family: Arial, Helvetica, sans-serif;"><b>Course #</b></th>
+                    <th style="border:1px solid black;font-family: Arial, Helvetica, sans-serif;"><b>Course
+                            Description</b>
+                    </th>
+                    <th style="border:1px solid black;font-family: Arial, Helvetica, sans-serif;"><b>Section #</b></th>
+                    <th style="border:1px solid black;font-family: Arial, Helvetica, sans-serif;"><b>Class Time</b></th>
+                    <th style="border:1px solid black;font-family: Arial, Helvetica, sans-serif;"><b>Class Location</b>
+                    </th>
+                </tr>
+                <tr>
+                    <td
+                        style="border:1px solid black;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                        CS 432</td>
+                    <td style="border:1px solid black;">Software Engineering III</td>
+                    <td style="border:1px solid black;">01</td>
+                    <td style="border:1px solid black;">Online</td>
+                    <td style="border:1px solid black;">Online</td>
+                </tr>
+                <tr>
+                    <td
+                        style="border:1px solid black;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                        CS 213</td>
+                    <td style="border:1px solid black;">Web Engineering I</td>
+                    <td style="border:1px solid black;">02</td>
+                    <td style="border:1px solid black;">Online</td>
+                    <td style="border:1px solid black;">Online</td>
+                </tr>
+                <tr>
+                    <td
+                        style="border:1px solid black;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                        FDREL 275C</td>
+                    <td style="border:1px solid black;">The Teachings and Doctrine of the Book of Mormon</td>
+                    <td style="border:1px solid black;">41</td>
+                    <td style="border:1px solid black;">Online</td>
+                    <td style="border:1px solid black;">Online</td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <hr />
+        <div style="margin: auto;background-color: mediumaquamarine">
+            <p>Tell me about yourself!</p>
+            <form action="" id="userform">
+                What's your name:<br>
+                <input type="text" name="firstname" placeholder="First Name"><br>
+                <div>
+                    Do we share any interests?<br>
+                    <input type="checkbox" name="interest1" value="Climbing">
+                    Rock Climbing<br>
+                    <input type="checkbox" name="interest2" value="Movies">
+                    Movies and Films<br>
+                    <input type="checkbox" name="interest3" value="Records">
+                    Records and Vinyls<br>
+                    <input type="checkbox" name="interest4" value="Videogames">
+                    Video Games<br>
+                    <input type="checkbox" name="interest5" value="Cardgames">
+                    Card Games<br>
+                </div><br>
+                <div>
+                    What is your favorite season of Avatar: The Last Airbender?<br>
+                    <input type="radio" name="book" value="book1" id="book1">
+                    <label for="book1">Book 1: Water</label><br>
+                    <input type="radio" name="book" value="book2" id="book2">
+                    <label for="book2">Book 2: Earth</label><br>
+                    <input type="radio" name="book" value="book3" id="book3">
+                    <label for="book3">Book 3: Fire</label><br>
+                    <input type="radio" name="book" value="uncultured" id="uncultured">
+                    <label for="uncultured">I don't know.</label><br><br>
+                    <p>What's your favorite binge service?</p>
+                    <select name="chill" form="userform">
+                        <option value="netflix">Netflix</option>
+                        <option value="hulu">Hulu</option>
+                        <option value="prime">Amazon Prime</option>
+                        <option value="other">Other</option>
+                    </select><br><br>
+                    <textarea name="usermsg" form="userform" rows="1" cols="69"
+                        placeholder="Enter a message to me here..."></textarea><br>
+                </div><br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </div>
+
+        <hr />
+        <footer id="contact" style="background-color: cornflowerblue">
+            <p style="font-family:Verdana, Geneva, Tahoma, sans-serif">Created by: Seth Bolander</p>
+            <p style="font-family:Verdana, Geneva, Tahoma, sans-serif">
+                Contact info: <a href="mailto:bol15015@byui.edu">bol15015@byui.edu</a></p>
+            <div style="text-align:center">
+                <a href="https://byui.instructure.com/courses/36310" style="text-align: center">CS 213</a>
+            </div>
+        </footer>
+
+    </body>
+
+</html>

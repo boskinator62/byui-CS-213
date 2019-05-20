@@ -1,0 +1,48 @@
+body {
+    background-color: cadetblue;
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Open Sans',
+        'Helvetica Neue',
+        sans-serif;
+    font-weight: 700;
+}
+
+hr {
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    background-color: chartreuse
+}
+
+.button {
+    display: inline-block;
+    padding: 0.5em 3em;
+    border: 0.2em solid #000000;
+    margin: 0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    font-weight: 600;
+    color: #000000;
+    text-align: center;
+}
+
+.button:hover {
+    color: gray;
+    border-color: gray;
+}
+
+#monthlyPay {
+    background-color: chartreuse;
+}
+
+footer {
+    background-color: chartreuse;
+}

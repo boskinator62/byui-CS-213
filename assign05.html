@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Mortgage Calculator</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="assign05.css" />
+        <script>
+            function calculatePayment() {
+                const apr = Number(document.getElementById('apr').value) / 100;
+                var r = apr / 12;
+                const term = Number(document.getElementById('term').value);
+                var n = term * 12;
+                var d = (1 + r) ** n;
+                const amount = Number(document.getElementById('amount').value);
+                var monthlyPayment = amount * (r * d) / (d - 1);
+                var alerts = document.getElementById('issues');
+                var issues = '';
+
+                if (apr > 0.25) {
+                    issues += 'APR must be between 0% and 25%.\n ';
+                }
+                if (term <= 0 || term > 40) {
+                    issues += 'Loan Term (in years) must be greater than 0 and less than 40.0.\n ';
+                }
+                alerts.innerHTML = issues;
+                if (issues === '') {
+                    document.getElementById('payment').innerHTML = `$${monthlyPayment.toFixed(2)}`;
+                }
+            }
+
+            function clear() {
+                document.getElementById('payment').innerHTML = '';
+            }
+
+        </script>
+    </head>
+
+    <body>
+
+        <header class="pagehead">
+            <h1>Mortgage Calculator</h1>
+        </header>
+        <hr />
+
+        <div class="calcForm">
+            <form action="">
+                APR (a percent between 0.00 and 25.00):
+                <input id="apr" type="number" required="true" min="0" max="25" value="5.25" size="4" step="0.01"
+                    onchange="calculatePayment()">%
+                <br />
+                Loan Term (in years) (a number greater than 0 and less than or equal to 40):
+                <input id="term" type="number" required="true" max="40" value="10" size="4"
+                    onchange="calculatePayment()">
+                <br />
+                Loan Amount (in dollars):
+                <input id="amount" type="number" required="true" min="0" value="100000" size="4"
+                    onchange="calculatePayment()">
+                <br />
+                <br />
+                <div style="text-align:center;">
+                    <button type="button" id="calculate" class="button" onclick="calculatePayment()">Calculate
+                        Payment</button>
+                    <input type="reset" name="Reset" class="button" onclick="clear()">
+                </div>
+                <p id="issues"></p><br />
+                <hr />
+                <div id="monthlyPay">
+                    <h4>Monthly Payment:</h4>
+                    <p id="payment"></p>
+                </div>
+            </form>
+        </div>
+
+        <hr />
+        <footer class="contact">
+            <p>Created by: Seth Bolander</p>
+            <p>
+                For FAQ email: <a href="mailto:mortgagecalcman@mailinator.com">mortgagecalcman@mailinator.com</a>
+            </p>
+        </footer>
+    </body>
+
+</html>

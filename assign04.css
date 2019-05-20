@@ -1,0 +1,57 @@
+body {
+    margin: 20px;
+    background-color: forestgreen;
+
+}
+
+.pagehead {
+    background-color: gold;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 160px;
+    background-color: gold;
+    border-radius: 10px;
+}
+
+li a {
+    display: block;
+    color: crimson;
+    padding: 8px 16px;
+}
+
+li a:hover {
+    background-color: forestgreen;
+    color: lightskyblue;
+}
+
+#photos {
+    text-align: left;
+}
+
+.contact {
+    border-radius: 10px;
+    background-color: gold;
+    color: forestgreen;
+    text-align: left;
+    font-size: 14px;
+}
+
+#email {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+    border: 4px gray;
+    width: 100%;
+}
+
+img {
+    width: 40%;
+    height: auto;
+}
