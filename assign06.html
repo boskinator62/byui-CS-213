@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Buy Our Stuff!</title>
+        <meta charset="utf-8">
+        <script>
+            function validateTel(tel) {
+                var reg = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+                if (!tel.value.match(reg) || tel.value == "") {
+                    document.getElementById('telError').innerHTML = "Telephone # must be in format ###-###-####";
+                    return false;
+                } else {
+                    document.getElementById('telError').innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validateCard(card) {
+                var reg = /(\d{16})/;
+                if (!card.value.match(reg) || card.value == "") {
+                    document.getElementById('cardError').innerHTML = "Card # must be in format ################";
+                    return false;
+                } else {
+                    document.getElementById('cardError').innerHTML = "";
+                    return true;
+                }
+            }
+
+            function validateExp(exp) {
+                var good = true;
+                var reg = /(\d{2})\/(\d{4})/;
+                if (!exp.value.match(reg) || exp.value == "") {
+                    good = false;
+                    document.getElementById('expError').innerHTML = "Expiration date must be in format DD/YYYY. ";
+                } else {
+                    document.getElementById('expError').innerHTML = "";
+                }
+                var monthYear = exp.value.split('/');
+                if (Number(monthYear[0]) > 12 || Number(monthYear[0]) < 1) {
+                    good = false;
+                    document.getElementById('expError').innerHTML += "Month must be between 01 - 12. ";
+                }
+                if (Number(monthYear[1]) <= 2017) {
+                    good = false;
+                    document.getElementById('expError').innerHTML += "Year must be 2018 or greater.";
+                }
+                return good;
+            }
+
+            function change(stuff) {
+                var total = document.getElementById("total");
+                var num = Number(total.innerHTML);
+                if (stuff.checked) {
+                    num += 15;
+                } else if (!stuff.checked) {
+                    num -= 15;
+                }
+
+                total.innerHTML = `${num}.00`;
+            }
+
+            function setFocusToName() {
+                document.getElementById('first_name').focus();
+            }
+
+            function cleared() {
+                document.getElementById('cardError').innerHTML = "";
+                document.getElementById('expError').innerHTML = "";
+                document.getElementById('telError').innerHTML = "";
+                setFocusToName();
+            }
+
+            function isEmpty(question) {
+                question.focus();
+            }
+
+            function validateForm() {
+                if (document.forms[0].first_name.value == "") {
+                    isEmpty(document.forms[0].first_name);
+                } else if (document.forms[0].last_name.value == "") {
+                    isEmpty(document.forms[0].last_name);
+                } else if (document.forms[0].address.value == "") {
+                    isEmpty(document.forms[0].address);
+                } else if (!validateTel(document.forms[0].phone)) {
+                    isEmpty(document.forms[0].phone);
+                } else if (!validateCard(document.forms[0].credit_card)) {
+                    isEmpty(document.forms[0].credit_card);
+                } else if (!validateExp(document.forms[0].exp_date)) {
+                    isEmpty(document.forms[0].exp_date);
+                } else {
+                    document.forms[0].submit();
+                }
+            }
+
+        </script>
+        <style>
+            body {
+                background-color: darkslategray;
+            }
+
+            header {
+                text-align: center;
+                border: 50px;
+                border-color: turquoise;
+                font-family: Arial, Helvetica, sans-serif;
+                color: olivedrab;
+                font-weight: 800;
+            }
+
+            #tobefilled {
+                text-align: left;
+                padding: 50px;
+                background-color: darkturquoise;
+            }
+
+            hr {
+                border: 5px solid gold;
+                border-radius: 5px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+            <h1><strong>WELCOME TO BUY OUR STUFF DOT COM!</strong></h1>
+            <h1><strong>COME BUY OUR STUFF!</strong></h1>
+        </header>
+        <hr>
+
+        <div id="tobefilled" onload='setFocusToName();'>
+            <p id="blankError">All form elements must be filled to submit.</p>
+            <form id="scriptForm" action="" onsubmit="alert('Thank you for your purchase.');">
+                First Name:<input name="first_name" type="text" id="first_name"><br>
+                Last Name:<input name="last_name" type="text"><br>
+                Address:<textarea name="address" placeholder="123 ABC Street, City, State 00000"></textarea><br>
+                Phone:<input name="phone" type="text" onblur="validateTel(this);" placeholder="###-###-####">
+                <p id="telError" style="color:red;"></p><br>
+                <hr>
+                Add the following to cart:<br>
+                <table>
+                    <tr>
+                        <th style="text-align:center;">Item</th>
+                        <th style="text-align:center;">
+                            ................................................................................</th>
+                        <th style="text-align:center;">Price</th>
+                    </tr>
+                    <tr>
+                        <td><input id="item_0" name="item_0" type="checkbox" onchange="change(this);" value='15'>Cool
+                            Stuff</td>
+                        <td>................................................................................</td>
+                        <td>$15</td>
+                    </tr>
+                    <tr>
+                        <td><input id="item_1" name="item_1" type="checkbox" onchange="change(this);" value='15'>Nice
+                            Stuff</td>
+                        <td>................................................................................</td>
+                        <td>$15</td>
+                    </tr>
+                    <tr>
+                        <td><input id="item_2" name="item_2" type="checkbox" onchange="change(this);" value='15'>Useless
+                            Stuff</td>
+                        <td>................................................................................</td>
+                        <td>$15</td>
+                    </tr>
+                    <tr>
+                        <td><input id="item_3" name="item_3" type="checkbox" onchange="change(this);" value='15'>Misc.
+                            Stuff</td>
+                        <td>................................................................................</td>
+                        <td>$15</td>
+                    </tr>
+                </table><br>
+                Total:<div id="total">0.00</div><br>
+                <hr>
+                Credit Card Type:<div><input name="card_type" type="radio" value="Visa">Visa<br>
+                    <input name="card_type" type="radio" value="MasterCard">MasterCard<br>
+                    <input name="card_type" type="radio" value="American_Express">American Express<br>
+                </div><br>
+                Card Number:<input name="credit_card" type="text" onblur="validateCard(this);"
+                    placeholder="################">
+                <p id="cardError" style="color:red;"></p><br>
+                Card Exp. Date:<input name="exp_date" type="text" onblur="validateExp(this);" placeholder="MM/YYYY">
+                <p id="expError" style="color:red;"></p><br>
+                <hr>
+                <input name="validate" type="button" value="Submit" onclick="validateForm();">
+                <input name="reset" type="reset" value="Reset" onreset="cleared();"><br>
+            </form>
+            <hr>
+            <p id="problems"></p>
+        </div>
+
+        <hr>
+        <footer>
+            <p>Created by: Seth Bolander</p>
+            <p>
+                For FAQ email: <a href="mailto:buyourstuff@mailinator.com">buyourstuff@mailinator.com</a>
+            </p>
+        </footer>
+    </body>
+
+</html>
